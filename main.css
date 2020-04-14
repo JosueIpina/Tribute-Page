@@ -28,22 +28,29 @@ p{
 .container{
     width:95%;
     margin:auto;
+    height: 100%;
 }
 
-#profile-heading{
-    
+.flex-container{
+    display:flex;
+    width:90%;
+    margin:auto;
 }
 
 #profile{
-    box-shadow: 0px -3px 7px #000000;
-
+    min-height: 45vh;
     text-align: center;
-    margin-bottom:1.25em;
+
+    /* background */
+    background-color: white;
+    background-size: contain;
+    background-image: radial-gradient(93.94% 138.04% at 50% -71.56%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.61) 100%, rgba(0, 0, 0, 0.61) 100%), url("./media/bckg.png");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #title{
     font-weight: lighter;
-    /* color:#0e0e0e; */
     margin-bottom: .5em;
 }
 
@@ -56,13 +63,13 @@ p{
 }
 
 #biography{
-  display:flex;
+  padding-top: 1em;
   background-color:#0E0E0E;
   color:#ffffff;
   min-height: 100vh;
-  width:95%;
-  margin:auto;
+  display: flex;
   align-items: center;
+  box-shadow: 0px -3px 7px #000000;
 }
 
 #tribute-info{
@@ -70,47 +77,32 @@ p{
     text-align: justify;
 }
 
+#tribute-info, #img-div{
+    flex: 1;
+    align-self: center;
+}
+
 #image{
     max-width: 100%;
     height: auto;
+    position:relative;
+    left:7vw;
 }
 
 #img-caption{
-    text-align: center;
+    text-align: right;
 }
-
-
-@media(min-width:850px){
-    #profile{
-    height: 45vh;
-    background-color: white;
-    background-image: radial-gradient(93.94% 138.04% at 50% -71.56%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.61) 100%, rgba(0, 0, 0, 0.61) 100%), url("./media/bckg.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    }
-
-    #image{
-        position:relative;
-        left:7vw;
-    }
-}
-
-
 
 @media (max-width:850px){
 
+    /* Small screen-exclusive styles */
     #profile-heading{
-        height: 25vh;
+        /* small screen background */
+        min-height: 25vh;
         background-image: radial-gradient(93.94% 138.04% at 50% -71.56%, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.61) 100%, rgba(0, 0, 0, 0.61) 100%), url("./media/bckg.png");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-    }
-
-    #profile{
-     
-     color:white;
     }
 
     #title{
@@ -119,14 +111,30 @@ p{
         margin-top: -1.5em;
         margin-bottom:.5em;
     }
-
+    
     #profile-img{
         position:relative;
         bottom:6em;
         max-width:35%;
     }
+    
+    /* Reset styles on smaller devices */
+
+    #profile{
+     box-shadow: 0px -3px 7px #000000;
+     color:white;
+     background:none;
+    }
 
     #biography{
+        box-shadow: none;
+    }
+
+    #image{
+        position: initial;
+    }
+
+    .flex-container{
         flex-direction: column;
     }
 }
